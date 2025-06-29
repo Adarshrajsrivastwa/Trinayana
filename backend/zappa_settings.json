@@ -1,0 +1,10 @@
+{
+  "production": {
+    "app_function": "app.app",
+    "aws_region": "ap-south-1",
+    "profile_name": "default",
+    "project_name": "phishing-detector",
+    "runtime": "python3.11",
+    "s3_bucket": "zappa-phishing-detector-adarshraj-2025"
+  }
+}
