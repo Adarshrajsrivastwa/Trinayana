@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trinayana</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        </div>
+        <h1>Trinayana</h1>
+      </div>
+      <nav>
+        <button id="url-tab-btn" class="tab-btn active">URL Check</button>
+        <button id="email-tab-btn" class="tab-btn">Email Check</button>
+        <button id="history-tab-btn" class="tab-btn">History</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- URL Check Tab -->
+      <section id="url-check" class="tab-content active">
+        <div class="current-url-container">
+          <h2>Current Website</h2>
+          <div id="current-url-display" class="url-display">
+            <span class="loading-text">Loading current URL...</span>
+          </div>
+          <button id="check-current-url" class="primary-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Analyze Safety
+          </button>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="manual-check">
+          <h2>Check Any URL</h2>
+          <div class="input-group">
+            <input type="text" id="url-input" placeholder="Enter website URL...">
+            <button id="check-url-btn" class="secondary-btn">Check</button>
+          </div>
+        </div>
+        
+        <div id="url-result" class="result-container hidden">
+          <div class="result-header">
+            <h3>Safety Analysis</h3>
+            <span id="url-safety-badge" class="badge">Analyzing...</span>
+          </div>
+          <div class="result-details">
+            <div class="detail-item">
+              <span class="detail-label">Domain Age:</span>
+              <span id="domain-age" class="detail-value">Checking...</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">SSL Certificate:</span>
+              <span id="ssl-status" class="detail-value">Checking...</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Blacklist Status:</span>
+              <span id="blacklist-status" class="detail-value">Checking...</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Suspicious Patterns:</span>
+              <span id="suspicious-patterns" class="detail-value">Checking...</span>
+            </div>
+          </div>
+          <div id="url-advice" class="advice">
+            <p>Analyzing this URL for potential threats...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Email Check Tab -->
+      <section id="email-check" class="tab-content">
+        <h2>Email Analysis</h2>
+        <div class="input-group vertical">
+          <label for="email-sender">Sender Email:</label>
+          <input type="email" id="email-sender" placeholder="Enter sender's email address...">
+        </div>
+        <div class="input-group vertical">
+          <label for="email-subject">Subject Line:</label>
+          <input type="text" id="email-subject" placeholder="Enter email subject...">
+        </div>
+        <div class="input-group vertical">
+          <label for="email-content">Email Content:</label>
+          <textarea id="email-content" placeholder="Paste email content here..."></textarea>
+        </div>
+        <button id="check-email-btn" class="primary-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-check"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/></svg>
+          Analyze Email
+        </button>
+        
+        <div id="email-result" class="result-container hidden">
+          <div class="result-header">
+            <h3>Email Safety Analysis</h3>
+            <span id="email-safety-badge" class="badge">Analyzing...</span>
+          </div>
+          <div class="result-details">
+            <div class="detail-item">
+              <span class="detail-label">Sender Verification:</span>
+              <span id="sender-verification" class="detail-value">Checking...</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Phishing Indicators:</span>
+              <span id="phishing-indicators" class="detail-value">Checking...</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Urgency Tactics:</span>
+              <span id="urgency-tactics" class="detail-value">Checking...</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Suspicious Links:</span>
+              <span id="suspicious-links" class="detail-value">Checking...</span>
+            </div>
+          </div>
+          <div id="email-advice" class="advice">
+            <p>Analyzing this email for potential threats...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- History Tab -->
+      <section id="history" class="tab-content">
+        <h2>Security History</h2>
+        <div class="history-filters">
+          <button id="all-history" class="filter-btn active">All</button>
+          <button id="url-history" class="filter-btn">URLs</button>
+          <button id="email-history" class="filter-btn">Emails</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <p class="empty-state">Your security check history will appear here.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 FraudShield - Protecting your digital security</p>
+    </footer>
+  </div>
+
+  <script type="module" src="scripts/popup.js"></script>
+</body>
+</html>
